@@ -30,9 +30,9 @@ SMODS.Back {
             "Only {C:attention}Jokers{} can earn you {C:money}${}",
 			"Start with",
 			"an {C:purple}Eternal{} {C:dark_edition}Negative{} {C:attention,T:j_gift}Gift Card{p:1}",
+			"Shop has no {C:attention}Jokers{}",
 			"Open a {C:attention,T:p_buffoon_jumbo_1}Jumbo Pack{}",
-			"after defeating a {C:attention}Blind{}"
-			
+			"after defeating a {C:attention}Blind{}",
         }
     },
 
