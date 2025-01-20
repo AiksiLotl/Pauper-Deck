@@ -16,7 +16,8 @@ SMODS.Back {
     loc_txt = {
         name = "Pauper deck",
         text = {
-            "Earn no money thru usual means...",
+            "Only Jokers can earn you money",
+			"Start with an Eternal Negative Gift Card",
 			"Get a Buffoon Tag after defeating a blind"
         }
     },
