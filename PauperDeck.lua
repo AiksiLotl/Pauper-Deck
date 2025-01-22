@@ -91,23 +91,43 @@ SMODS.Back {
 		}))
 	end,
 
---  Spawns a Jumbo Pack after a Blind is defeated
 	trigger_effect = function(self, args)
 		if args.context == 'eval' and G.GAME.last_blind then
-
-			local key = "p_buffoon_jumbo_1"
-			local card = Card(
-				G.play.T.x + G.play.T.w / 2 - G.CARD_W * 1.27 / 2,
-				G.play.T.y + G.play.T.h / 2 - G.CARD_H * 1.27 / 2,
-				G.CARD_W * 1.27,
-				G.CARD_H * 1.27,
-				G.P_CARDS.empty,
-				G.P_CENTERS[key],
-				{ bypass_discovery_center = true, bypass_discovery_ui = true }
-			)
-			card.cost = 0
-			G.FUNCS.use_card({ config = { ref_table = card } } )
-			card:start_materialize()
+			G.E_MANAGER:add_event(Event({
+				trigger = "condition",
+				blocking = false, 
+				func = function() 
+					if G.STATE == G.STATES.SHOP then
+--  Spawns a Jumbo Pack after a Blind is defeated
+						G.E_MANAGER:add_event(Event({
+							trigger = "after",
+							delay = 2.0,
+							func = function()
+								local key = "p_buffoon_jumbo_1"
+								local card = Card(
+									G.play.T.x + G.play.T.w / 2 - G.CARD_W * 1.27 / 2,
+									G.play.T.y + G.play.T.h / 2 - G.CARD_H * 1.27 / 2,
+--									G.shop_booster.T.x + G.shop_booster.T.w/2,
+--									G.shop_booster.T.y, 
+									G.CARD_W * 1.27,
+									G.CARD_H * 1.27,
+									G.P_CARDS.empty,
+									G.P_CENTERS[key],
+									{ bypass_discovery_center = true, bypass_discovery_ui = true }
+								)
+								card.cost = 0
+								G.FUNCS.use_card({ config = { ref_table = card } } )
+--								create_shop_card_ui(card, 'Booster', G.shop_booster)
+								card:start_materialize()
+--								G.shop_booster:emplace(card)
+								return true
+							end,
+						}))
+						return true
+					end
+					return false
+				end
+			}))
 
 --  Decreases the price of each consumable at the end of the round to counterract Gift Card's effect
 			for k, v in ipairs(G.consumeables.cards) do
