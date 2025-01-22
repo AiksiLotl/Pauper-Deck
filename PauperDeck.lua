@@ -101,7 +101,7 @@ SMODS.Back {
 --  Spawns a Jumbo Pack after a Blind is defeated
 						G.E_MANAGER:add_event(Event({
 							trigger = "after",
-							delay = 2.0,
+--							delay = 2.0,
 							func = function()
 								local key = "p_buffoon_jumbo_1"
 								local card = Card(
