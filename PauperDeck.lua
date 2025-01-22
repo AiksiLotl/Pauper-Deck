@@ -4,7 +4,7 @@
 --- MOD_AUTHOR: [Aiksi]
 --- MOD_DESCRIPTION: It's a deck!
 --- DEPENDENCIES: [Steamodded>=1.0.0~ALPHA-1216c]
---- VERSION: 1.05
+--- VERSION: 1.1
 
 ----------------------------------------------
 ------------MOD CODE -------------------------
